@@ -153,11 +153,6 @@ func (t *Thread) ClearBreakpoint(bp *proc.Breakpoint) error {
 	return nil
 }
 
-// Registers obtains register values from the debugged process.
-func (t *Thread) Registers(floatingPoint bool) (proc.Registers, error) {
-	return registers(t, floatingPoint)
-}
-
 // RestoreRegisters will set the value of the CPU registers to those
 // passed in via 'savedRegs'.
 func (t *Thread) RestoreRegisters(savedRegs proc.Registers) error {

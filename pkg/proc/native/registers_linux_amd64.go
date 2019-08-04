@@ -46,6 +46,11 @@ func (thread *Thread) SetDX(dx uint64) (err error) {
 	return
 }
 
+// Registers obtains register values from the debugged process.
+func (t *Thread) Registers(floatingPoint bool) (proc.Registers, error) {
+	return registers(t, floatingPoint)
+}
+
 func registers(thread *Thread, floatingPoint bool) (proc.Registers, error) {
 	var (
 		regs linutil.AMD64PtraceRegs
